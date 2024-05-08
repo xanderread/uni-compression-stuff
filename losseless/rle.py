@@ -37,6 +37,12 @@ def run_length_encode(input_string, n):
 
 # Example usage
 inp = str(input("Enter the string to encode: "))
-n = int(input("Enter the number of occurrences needed for encoding (1 if not needed): ")) 
+n = int(input("Enter the number of occurrences needed for encoding (n) - defaults to 1:")) 
+
+if n == 0 or n == None:
+    n = 1
+
+inp = inp.replace(' ', '␣')  # Handling space character
+
 encoded_string = run_length_encode(inp, n)
 print("Encoded string:", encoded_string)

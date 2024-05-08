@@ -43,7 +43,7 @@ def generate_huffman_codes(root, code="", codes={}):
 
 
 
-def visualize_huffman_tree(root):
+def visualize_huffman_tree(root,name):
     def add_nodes_edges(node, graph, node_id):
         # Non-leaf nodes use frequency only as label
         if node.char is None:
@@ -70,20 +70,20 @@ def visualize_huffman_tree(root):
     graph = Digraph()
     add_nodes_edges(root, graph, "root")
     # Render the graph to a file and open it
-    graph.render('huffman_tree', view=True)
-
-# Build Huffman Tree
+    graph.render('generated_huffman_trees/'+name, view=True)
 
 
-# Visualize Huffman Tree
 
 
+# Get user input
 inp = input("Enter the string to encode: ")
+inp = inp.replace(' ', '␣')
+
 
 # Calculate frequencies
 frequencies = {}
 # t : 5, r : 4, a : 2, d : 2, o : 2, e : 2, u : 1, = : 1, i : 1
-frequencies = {'t': 5, 'r': 4, 'a': 2, 'd': 2, 'o': 2, 'e': 2, 'u': 1, '=': 1, 'i': 1}
+# frequencies = {'t': 5, 'r': 4, 'a': 2, 'd': 2, 'o': 2, 'e': 2, 'u': 1, '=': 1, 'i': 1}
 for char in inp:
     if char in frequencies:
         frequencies[char] += 1
@@ -105,8 +105,8 @@ print("The frequencies are:", frequencies)
 
 
 # Print Huffman Tree
-print("We build a huffman tree:")
-visualize_huffman_tree(root)
+print("We build a huffman tree (the file showing this is in the generated huffman trees folder)")
+visualize_huffman_tree(root,inp)
 
 # Print Huffman Codes
 print("This gives us the huffman Codes:")

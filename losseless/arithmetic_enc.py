@@ -5,6 +5,7 @@ getcontext().prec = 30
 
 # Input string
 inp = input("Enter the string to be encoded: ")
+input_string = inp.replace('␣', ' ')
 
 # Calculate frequencies
 frequencies = {}

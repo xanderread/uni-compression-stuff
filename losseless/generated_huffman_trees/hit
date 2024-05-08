@@ -1,0 +1,11 @@
+digraph {
+	root [label=3]
+	root -> rootl [label=0]
+	rootl [label=h]
+	root -> rootr [label=1]
+	rootr [label=2]
+	rootr -> rootrl [label=0]
+	rootrl [label=t]
+	rootr -> rootrr [label=1]
+	rootrr [label=i]
+}
