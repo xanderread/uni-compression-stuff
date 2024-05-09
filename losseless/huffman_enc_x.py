@@ -91,7 +91,7 @@ for char in inp:
         frequencies[char] = 1
 
 # Sort the frequencies (not necessarily needed for encoding but useful for understanding)
-frequencies = dict(sorted(frequencies.items(), key=lambda item: item[1]))
+frequencies = {k: v for k, v in sorted(frequencies.items(), key=lambda item: (-item[1], item[0]))}
 
 # Build Huffman Tree
 root = build_huffman_tree(frequencies)
