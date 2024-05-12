@@ -8,8 +8,8 @@
 inp = input("Enter the string to be encoded: ")
 
 # the practicals input: 
-# inp = '''Peter Piper picked a peck of pickled peppers; A peck of pickled peppers Peter Piper picked; If Peter
-# Piper picked a peck of pickled peppers, Where’s the peck of pickled peppers Peter Piper picked?'''
+inp = '''Peter Piper picked a peck of pickled peppers; A peck of pickled peppers Peter Piper picked; If Peter
+Piper picked a peck of pickled peppers, Where’s the peck of pickled peppers Peter Piper picked?'''
 
 inp = inp.replace(' ', '␣')  # Handling space character
 

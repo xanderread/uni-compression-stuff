@@ -15,8 +15,10 @@ for char in inp:
     else:
         frequencies[char] = 1
 
-# Sort the frequencies (not necessarily needed for encoding but useful for understanding)
+# Sort the frequencies (not necessarily needed for encoding but useful for understanding) - sort by value and then alphabetically (not in reverse)
 frequencies = dict(sorted(frequencies.items(), key=lambda item: item[1], reverse=True))
+
+
 
 print("The frequencies are:")
 
