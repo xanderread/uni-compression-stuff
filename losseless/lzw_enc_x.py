@@ -5,7 +5,6 @@ def lzw_compression(input_string):
     dictionary = {chr(i) if chr(i) != ' ' else '␣': i for i in range(256)}
     working = pd.DataFrame(columns=['Position', 'String', 'Token', 'What the token encodes'])
 
- 
     dict_size = 256  # Next available dictionary index
     sequence = ""    # Current sequence
     compressed_output = []  # Store the compressed output

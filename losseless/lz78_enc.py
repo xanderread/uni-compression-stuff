@@ -41,6 +41,25 @@ def lz78_compression(input_string):
 # Calculate the LZ78 compressed output
 compressed_sequence = lz78_compression(inp)
 
+def save_table_to_pdf(df, filename):
+    df = df.copy()
+
+    # Make the position column an integer
+    df['Position'] = df['Position'].astype(int)
+
+
+    # Step 4: Save DataFrame to PDF
+    with PdfPages(filename) as pdf:
+        fig, ax = plt.subplots(figsize=(8, 3))  # Adjust the size as needed
+        ax.axis('tight')
+        ax.axis('off')
+        table = ax.table(cellText=df.values, colLabels=df.columns, cellLoc='center', loc='center')
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.auto_set_column_width(col=list(range(len(df.columns))))
+        
+        pdf.savefig(fig, bbox_inches='tight')
+
 def dict_to_df(dictionary, compressed_output):
     # Convert dictionary to DataFrame
     data = []
@@ -51,7 +70,6 @@ def dict_to_df(dictionary, compressed_output):
         token = f"({prev_index}, '{char}')"
         data.append({'Position': index, 'String': string, 'Token': token})
     # Include the initial empty string
-    data.insert(0, {'Position': 0, 'String': '', 'Token': 'ε'})
     df = pd.DataFrame(data, columns=['Position', 'String', 'Token'])
     return df
 
@@ -60,6 +78,8 @@ dictionary_df = dict_to_df(dictionary, compressed_sequence)
 print("The dictionary is: ")
 print(dictionary_df.to_string(index=False))
 print("The LZ78 compressed output is: ", compressed_sequence)
+
+save_table_to_pdf(dictionary_df, 'lz78_compression.pdf')
 
 
 
